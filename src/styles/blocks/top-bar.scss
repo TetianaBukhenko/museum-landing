@@ -1,0 +1,77 @@
+.top-bar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background-color: $c-green;
+  align-items: center;
+  padding-block: 20px;
+
+
+
+  @include on-desktop {
+    grid-column: 1 / 13;
+  }
+
+  &__container {
+    @include max-width;
+    @include padding-inline;
+    
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: 36px;
+    color: $c-white;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+
+    @include hover(transform, scale(1.2));
+  }
+}
+
+.icon {
+  display: block;
+
+  @include hover(transform, rotate(180deg));
+
+  &--menu {
+    height: 20px;
+    width: 25px;
+    transition: 0.3s;
+
+    @include on-tablet {
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  &--hide {
+    position: absolute;
+    transform: scale(0);
+  }
+   &--show {
+    transform: scale(1);
+   }
+
+  &--close {
+    width: 20px;
+    height: 20px;
+
+    &:hover > * {
+      fill: #cd4d31;
+    }
+
+    @include hover(transform, rotate(90deg));
+
+    @include on-tablet {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}

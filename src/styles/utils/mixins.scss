@@ -1,0 +1,86 @@
+@mixin hover($property, $toValue) {
+  transition: #{$property} 0.3s;
+  &:hover {
+    #{$property}: $toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin max-width {
+  @media (min-width: 1300px) {
+    margin: 0 auto;
+    max-width: 1280px;
+    box-sizing: border-box;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 30px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 30px;
+  }
+}
+
+@mixin padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 39px;
+  }
+
+  @include on-desktop {
+    padding-inline: 55px;
+  }
+}
+
+@mixin padding-top-small {
+  padding-top: 90px;
+
+  @include on-tablet {
+    padding-top: 100px;
+  }
+
+  @include on-desktop {
+    padding-top: 110px;
+  }
+}
+
+@mixin padding-top-big {
+  padding-top: 120px;
+
+  @include on-tablet {
+    padding-top: 160px;
+  }
+
+  @include on-desktop {
+    padding-top: 200px;
+  }
+}
+
+@mixin img-hover {
+  transition: transform 0.3s, border-radius 0.3s;
+  &:hover {
+    transform: scale(1.07);
+    border-radius: 10%;
+  }
+}
