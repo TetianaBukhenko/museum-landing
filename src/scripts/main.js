@@ -20,9 +20,6 @@ for (const button of buttons) {
 const menuButton = document.querySelector('#icon--menu');
 const closeButton = document.querySelector('#icon--close');
 
-console.log(menuButton);
-console.log(closeButton);
-
 menuButton.addEventListener('click', () => {
   closeButton.classList.remove('icon--hide');
   closeButton.classList.add('icon--show');
