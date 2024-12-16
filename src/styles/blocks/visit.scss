@@ -16,7 +16,9 @@
       @include page-grid;
     }
 
-    @include max-width;
+    @include on-large-screen {
+      @include max-width;
+    }
   }
 
   &__img {

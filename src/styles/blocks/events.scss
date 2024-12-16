@@ -1,6 +1,5 @@
 .events {
   @include padding-inline;
-  @include max-width;
   @include padding-top-big;
 
   @include on-tablet {

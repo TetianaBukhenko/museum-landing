@@ -5,6 +5,12 @@
   display: flex;
   flex-direction: column;
 
+  @include on-large-screen {
+    min-height: 100%;
+
+    @include max-width;
+  }
+
   &__container {
     flex-grow: 1;
     padding-top: 70px;
@@ -12,8 +18,7 @@
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    
-    @include max-width;
+
     @include padding-inline;
 
     @include on-tablet {
@@ -40,7 +45,7 @@
     min-height: 273px;
     background-image: url(../images/header.png);
     background-size: contain;
-    background-position: center bottom;
+    background-position: top right;
     background-repeat: no-repeat;
     margin-top: 40px;
 
@@ -56,7 +61,7 @@
       height: 100%;
       grid-column: 7 / -1;
       margin-top: 0;
-      position: absolute;
+      position: relative;
       right: 0;
       left: 0;
     }

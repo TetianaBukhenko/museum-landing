@@ -17,6 +17,12 @@
   }
 }
 
+@mixin on-large-screen {
+  @media (min-width: $large-screen-width) {
+    @content;
+  }
+}
+
 @mixin max-width {
   @media (min-width: 1300px) {
     margin: 0 auto;

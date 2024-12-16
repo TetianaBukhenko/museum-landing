@@ -1,6 +1,5 @@
 .exhibitions {
   @include padding-inline;
-  @include max-width;
   @include padding-top-small;
 
   @include on-tablet {

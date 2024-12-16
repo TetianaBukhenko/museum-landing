@@ -12,12 +12,14 @@
 
   &__wrapper {
     @include padding-inline;
-    @include max-width;
 
     width: 100vw;
     padding-top: 34px;
     padding-bottom: 30px;
 
+    @include on-large-screen {
+      @include max-width;
+    }
   }
 
   &__container {
@@ -78,7 +80,7 @@
     &--icon {
       height: 20px;
       width: 20px;
-      transition: 5s;
+      transition: 0.3s;
 
       & > * {
         fill: $c-white;
@@ -109,8 +111,6 @@
 
   &__nav {
     list-style: none;
-
-
   }
 
   &__navItems {
@@ -130,7 +130,6 @@
 
     @include on-desktop {
       margin-top: 70px;
-
     }
   }
 }

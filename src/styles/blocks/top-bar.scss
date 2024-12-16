@@ -8,17 +8,20 @@
   background-color: $c-green;
   align-items: center;
   padding-block: 20px;
-
-
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
 
   @include on-desktop {
     grid-column: 1 / 13;
+
+  }
+
+  @include on-large-screen {
+    @include max-width;
   }
 
   &__container {
-    @include max-width;
     @include padding-inline;
-    
+
     display: flex;
     justify-content: space-between;
   }
@@ -55,9 +58,9 @@
     position: absolute;
     transform: scale(0);
   }
-   &--show {
+  &--show {
     transform: scale(1);
-   }
+  }
 
   &--close {
     width: 20px;

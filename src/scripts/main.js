@@ -1,38 +1,62 @@
+/* eslint-disable no-undef */
 'use strict';
 
+// #region onButtonClick
 const buttons = document.getElementsByClassName('button');
 const subscribeButton = document.getElementById('subscribe__button');
 
 const clickHandler = function() {
-  // eslint-disable-next-line no-undef
   alert('This button in work');
 };
 
 subscribeButton.addEventListener('click', () => {
-  // eslint-disable-next-line no-undef
   alert('You have successfully subscribed to our newsletter');
 });
 
 for (const button of buttons) {
   button.addEventListener('click', clickHandler);
 }
+// #endregion
 
+// #region menu
 const menuButton = document.querySelector('#icon--menu');
 const closeButton = document.querySelector('#icon--close');
+const menuBlock = document.querySelector('#menu');
+const menuContainer = document.querySelector('.menu__nav');
+const pageBody = document.querySelector('.page');
+let lastScrollPosition = 0;
 
-menuButton.addEventListener('click', () => {
+function handleOpenMenu() {
+  pageBody.style.overflow = 'hidden';
   closeButton.classList.remove('icon--hide');
   closeButton.classList.add('icon--show');
   menuButton.classList.add('icon--hide');
-});
+  menuBlock.classList.remove('menu--hide');
+  lastScrollPosition = window.scrollY;
+}
 
-closeButton.addEventListener('click', () => {
+function handleCloseMenu(event) {
+  event.preventDefault();
   menuButton.classList.remove('icon--hide');
   closeButton.classList.remove('icon--show');
   closeButton.classList.add('icon--hide');
-});
+  menuBlock.classList.add('menu--hide');
+  pageBody.style.overflow = '';
 
-// eslint-disable-next-line no-undef
+  window.scrollTo(0, lastScrollPosition);
+}
+
+menuButton.addEventListener('click', handleOpenMenu);
+
+closeButton.addEventListener('click', handleCloseMenu);
+
+menuContainer.addEventListener('click', (event) => {
+  if (event.target.nodeName === 'A') {
+    handleCloseMenu();
+  }
+});
+// #endregion
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {

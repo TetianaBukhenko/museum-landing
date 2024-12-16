@@ -1,13 +1,9 @@
 .subscribe {
   @include padding-inline;
-  @include max-width;
   @include padding-top-big;
-   &__container {
-    padding-bottom: 80px;
 
-    @include on-tablet {
-      padding-bottom: 128px;
-    }
+  &__container {
+    padding-bottom: 80px;
 
     @include on-desktop {
       padding-bottom: 0;
@@ -15,7 +11,15 @@
 
     @include on-tablet {
       @include page-grid;
+      
+      padding-bottom: 128px;
     }
+
+    @include on-large-screen {
+      @include max-width;
+    }
+
+
 
     & > * {
       grid-column: 1 / -1;
@@ -61,7 +65,6 @@
       grid-column: 7 / -1;
       position: relative;
       z-index: -1;
-
     }
   }
 }
