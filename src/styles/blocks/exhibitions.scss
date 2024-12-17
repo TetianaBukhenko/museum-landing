@@ -4,8 +4,7 @@
 
   @include on-tablet {
     @include page-grid;
-
-    align-items: center;
+    
     row-gap: 75px;
   }
 
@@ -28,32 +27,37 @@
     @include on-tablet {
       grid-column: span 2;
       grid-row: 1/2;
+      align-self: center;
     }
 
     @include on-desktop {
       grid-column: -4 / span 3;
     }
   }
-
-  &__container {
-    @include on-tablet {
-      grid-column: 1/ -1;
-      grid-row: 2/3;
-
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 30px;
-    }
-  }
 }
 
 .exhibition {
-  &:not(:last-child) {
-    margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:nth-child(3) {
+    margin-top: 60px;
 
     @include on-tablet {
-      margin-bottom: 0;
+      margin-top: 0;
     }
+  }
+
+  @include on-tablet {
+    grid-column: span 3;
+    height: 100%;
+    grid-row: 2/3;
+    align-self: stretch;
+  }
+
+  @include on-desktop {
+    grid-column: span 6;
   }
 
   &__heading {
@@ -107,4 +111,6 @@
       }
     }
   }
+
+
 }

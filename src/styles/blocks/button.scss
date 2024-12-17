@@ -37,21 +37,18 @@
     }
   }
 
-  &__red {
+  &--red {
     background-color: var(--color);
     color: $c-white;
     border: none;
-
-    @include on-tablet {
-      width: 330px;
-    }
+    max-width: 330px;
 
     @include on-desktop {
-      width: 270px;
+      max-width: 270px;
     }
   }
 
-  &__white {
+  &--white {
     background-color: $c-white;
     color: var(--color);
     border: 1px solid var(--color);

@@ -45,7 +45,7 @@
     min-height: 273px;
     background-image: url(../images/header.png);
     background-size: contain;
-    background-position: top right;
+    background-position: center;
     background-repeat: no-repeat;
     margin-top: 40px;
 
@@ -59,6 +59,7 @@
     @include on-desktop {
       background-image: url(../images/header--desktop.png);
       height: 100%;
+      background-position: top right;
       grid-column: 7 / -1;
       margin-top: 0;
       position: relative;

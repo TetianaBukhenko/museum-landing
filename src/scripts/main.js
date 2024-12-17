@@ -35,15 +35,17 @@ function handleOpenMenu() {
   lastScrollPosition = window.scrollY;
 }
 
-function handleCloseMenu(event) {
-  event.preventDefault();
+function handleCloseMenu(event, linkClicked) {
   menuButton.classList.remove('icon--hide');
   closeButton.classList.remove('icon--show');
   closeButton.classList.add('icon--hide');
   menuBlock.classList.add('menu--hide');
   pageBody.style.overflow = '';
 
-  window.scrollTo(0, lastScrollPosition);
+  if (!linkClicked) {
+    window.scrollTo(0, lastScrollPosition);
+    event.preventDefault();
+  }
 }
 
 menuButton.addEventListener('click', handleOpenMenu);
@@ -52,7 +54,7 @@ closeButton.addEventListener('click', handleCloseMenu);
 
 menuContainer.addEventListener('click', (event) => {
   if (event.target.nodeName === 'A') {
-    handleCloseMenu();
+    handleCloseMenu(event, true);
   }
 });
 // #endregion
